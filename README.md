@@ -56,7 +56,7 @@
 - レスポンシブ対応
 
 # 開発環境
-- Windows11 + Git Bash
+- OS:Windows11 + Git Bash
 - 言語：HTML、CSS、JavaScript、Ruby
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
