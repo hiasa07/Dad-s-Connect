@@ -15,8 +15,8 @@ class PostsController < ApplicationController
   end
 
   def index
-      @posts = Post.published.page(params[:page]).reverse_order
-      @posts = @posts.where('title LIKE ?', "%#{params[:search]}%") if params[:search].present?
+    @posts = Post.published.page(params[:page]).reverse_order
+    @posts = @posts.where('title LIKE ?', "%#{params[:search]}%") if params[:search].present?
   end
 
   def show
@@ -46,6 +46,7 @@ class PostsController < ApplicationController
 
   def confirm
     @posts = current_user.posts.draft.page(params[:page]).reverse_order
+    @posts = @posts.where('title LIKE ?', "%#{params[:search]}%") if params[:search].present?
   end
 
   private
