@@ -5,7 +5,9 @@
   <% end %>
 </div>
 <% if posts.empty? %>
-  <p>一致する投稿はありません。</p>
+  <p>検索に一致する投稿はありません。</p>
+<% elsif posts.empty? %>
+  <p>投稿がまだありません。</p>
 <% else %>
   <div class="row mt-5 index-left w-100">
     <% posts.each do |post| %>
