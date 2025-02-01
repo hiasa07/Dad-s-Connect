@@ -24,7 +24,8 @@
       <%= link_to post_favorites_path(@post),  data: { turbo_method: :post }, class: "favorite_btn" do %>
         ♡<%= @post.favorites.count %> いいね
       <% end %>
-      <% end %>
+    <% end %>
+    <span style="margin-left: 10px;">閲覧数: <%= @post.views %></span>
     </p>
       <h2>感想</h2>
       <p id="text"><%= @post.text %></p>
