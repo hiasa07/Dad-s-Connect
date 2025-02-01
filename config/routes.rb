@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only:[:index, :show, :edit, :update] do
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :index, :show]
+
     member do
       get :follows, :followers
     end
