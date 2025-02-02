@@ -2,11 +2,11 @@ class RoomsController < ApplicationController
     before_action :authenticate_user!
   
     def create
-      @room = Room.create
-      @entry1 = Entry.create(room_id: @room.id, user_id: current_user.id)
-      @entry2 = Entry.create(params.require(:entry).permit(:user_id).merge(room_id: @room.id))
-      
-      redirect_to user_room_path(current_user, @room.id)
+      @room = Room.create!
+      @entry1 = Entry.create!(room_id: @room.id, user_id: current_user.id)
+      @entry2 = Entry.create!(room_id: @room.id, user_id: params.dig(:room, :entry, :user_id)) # 修正
+    
+      redirect_to user_room_path(current_user, @room)
     end    
   
     def show

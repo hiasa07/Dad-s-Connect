@@ -15,15 +15,15 @@
   ">
     <% @messages.each do |message| %>
       <% if message.sender == current_user %>
-      <!-- 送信者のメッセージ（右寄せ、緑背景） -->
-      <div style="margin-bottom: 15px; display: flex; justify-content: flex-end; text-align: left;">
-        <div style="
-          display: inline-block;
-          padding: 15px 20px;
-          border-radius: 20px;
-          background-color: #D4F7DC;
-          max-width: 85%;
-        ">
+        <!-- 送信者のメッセージ（右寄せ、緑背景） -->
+        <div style="margin-bottom: 15px; display: flex; justify-content: flex-end; text-align: left;">
+          <div style="
+            display: inline-block;
+            padding: 15px 20px;
+            border-radius: 20px;
+            background-color: #D4F7DC;
+            max-width: 85%;
+          ">
             <%= message.content %>
           </div>
         </div>
@@ -41,7 +41,7 @@
           </div>
         </div>
       <% end %>
-    <% end %>
+    <% end %> <!-- ここで@messages.eachの終了 -->
   </div>
 </div>
 
@@ -66,3 +66,6 @@
 
 <% if flash[:alert] %>
   <div style="color: red; margin-bottom: 10px;">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
