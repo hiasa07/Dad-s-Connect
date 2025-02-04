@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_02_133704) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_04_215135) do
   create_table "comments", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
@@ -68,6 +68,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_02_133704) do
   create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,5 +93,4 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_02_133704) do
   add_foreign_key "messages", "users"
   add_foreign_key "relationships", "users", column: "followed_id"
   add_foreign_key "relationships", "users", column: "follower_id"
-  add_foreign_key "rooms", "users"
 end
