@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
+
   def index
     @users = User.page(params[:page]).per(5).reverse_order
   end
@@ -39,8 +41,13 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: "プロフィールを更新しました。"
+    else
+      @posts = @user.posts.page(params[:page]).per(8).reverse_order
+      flash.now[:alert] = "プロフィールの更新に失敗しました。"
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def follows

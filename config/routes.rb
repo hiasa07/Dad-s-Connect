@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :rooms do
+    resources :messages, only: [:create]
+  end
+  
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show]
 
