@@ -23,7 +23,7 @@
         <% end %>
         <% if current_user.following?(@user) && @user.following?(current_user) %>
           <% if @isRoom && @roomId.present? %>
-            <%= link_to "チャットへ", room_path(@roomId), class: "btn btn-primary mb-2 mb-sm-0 mr-sm-4" %>
+            <%= link_to "チャットを始める", room_path(@roomId), class: "btn btn-primary mb-2 mb-sm-0 mr-sm-4" %>
           <% else %>
             <%= form_for @room do |f| %>
               <%= fields_for @entry do |e| %>

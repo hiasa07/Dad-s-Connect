@@ -60,7 +60,8 @@
   transform: translateX(-50%);
 ">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <textarea name="message[content]" placeholder="メッセージを入力してください" required style="flex: 1; padding: 15px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+  <%= hidden_field_tag 'message[room_id]', @room.id %>
+  <textarea name="message[message]" placeholder="メッセージを入力してください" required style="flex: 1; padding: 15px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
   <button type="submit" style="padding: 5px 10px; background-color: #4A90E2; color: white; border: none; border-radius: 5px; margin-left: 5px;">送信する</button>
 </form>
 
