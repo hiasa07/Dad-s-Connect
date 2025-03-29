@@ -12,4 +12,6 @@ ja:
               blank: "感想を入力してください。"
             image:
               blank: "画像を入力してください。"
+            category:
+               required: "カテゴリーを選んでください"
               

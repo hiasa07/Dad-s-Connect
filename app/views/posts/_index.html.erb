@@ -15,7 +15,7 @@
           <%= attachment_image_tag post, :image, format: 'jpeg', size: '300x200' %>
           <p class="caption"><%= post.title %></p>
           <!-- ここにカテゴリーを追加！ -->
-        <p class="caption">カテゴリー: <%= post.category.name if post.category %></p>
+          <p class="caption">カテゴリー: <%= post.category.name if post.category %></p>
           <p class="caption"><%= "#{post.comments.count} コメント" %></p>
         <% end %>
       </div>
