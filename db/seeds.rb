@@ -8,12 +8,16 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+# カテゴリーのリストを作る
 categories = [
   "食事",
   "お出かけ",
   "成長記録"
 ]
 
+# カテゴリーがなかったら作る
 categories.each do |category|
   Category.find_or_create_by(name: category)
 end
+
+puts "カテゴリーの登録が完了しました！"
